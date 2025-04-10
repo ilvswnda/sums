@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Summarizer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ddeeff, #c3ddf2);
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    textarea {
+      width: 97%;
+      height: 150px;
+      padding: 10px;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #357bd8;
+    }
+
+    #summary {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f0f4ff;
+      border-left: 5px solid #4a90e2;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.6);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AI Summarizer</h1>
+    <p>Paste your text below and get a quick summary powered by AI logic!</p>
+  </header>
+    <br> 
+  <section>
+    <h2>Enter Text</h2>
+    <textarea id="inputText" placeholder="Paste your paragraph or article here..."></textarea>
+    <button onclick="summarizeText()">Summarize</button>
+    <div id="summary"></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 AI Summarizer | Simplifying information one summary at a time</p>
+  </footer>
+
+  <script>
+    function summarizeText() {
+      const input = document.getElementById('inputText').value.trim();
+      const summaryBox = document.getElementById('summary');
+
+      if (!input) {
+        summaryBox.innerHTML = '<p style="color:red">Please enter some text to summarize.</p>';
+        return;
+      }
+
+      // Fake summarization logic for demo purposes
+      const sentences = input.split('.').filter(s => s.trim().length > 0);
+      let summary = '';
+
+      if (sentences.length > 3) {
+        summary = sentences.slice(0, 3).join('. ') + '.';
+      } else {
+        summary = input;
+      }
+
+      summaryBox.innerHTML = `<h3>Summary:</h3><p>${summary}</p>`;
+    }
+  </script>
+</body>
+</html>
